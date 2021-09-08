@@ -17,7 +17,7 @@ class Vasm < Formula
 
 
   def install
-    system "swift", "build", "-c", "release", "--diable-sandbox"
+    system "swift", "build", "-c", "release", "--disable-sandbox"
 
     bin.install ".build/release/vasm"
   end

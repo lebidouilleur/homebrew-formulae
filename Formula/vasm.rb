@@ -5,7 +5,7 @@ class Vasm < Formula
 
 
 
-  develop do
+  stable do
     url    "https://github.com/lebidouilleur/vasm/archive/refs/tags/v0.1%CE%B2.tar.gz"
     sha256 "17e95be103b3c14f8c2cdb26a68791296a8705fe74fd1841fed0fa9fe2ef0422"
   end

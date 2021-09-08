@@ -7,7 +7,7 @@ class Vasm < Formula
 
   stable do
     url    "https://github.com/lebidouilleur/vasm/archive/refs/tags/v0.1%CE%B3.tar.gz"
-    sha256 "2e11350e5dda33009d8c3beb74f2b60fb0f69291beb7056c357ddc4101c1a4c4"
+    sha256 "e366fafd133429e91fe512e518a130fbc1c0c552bfc56191a616ecceb18df4ab"
   end
 
   head do

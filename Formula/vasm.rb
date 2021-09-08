@@ -6,8 +6,8 @@ class Vasm < Formula
 
 
   stable do
-    url    "https://github.com/lebidouilleur/vasm/archive/refs/tags/v0.1%CE%B2.tar.gz"
-    sha256 "17e95be103b3c14f8c2cdb26a68791296a8705fe74fd1841fed0fa9fe2ef0422"
+    url    "https://github.com/lebidouilleur/vasm/archive/refs/tags/v0.1%CE%B3.tar.gz"
+    sha256 "2e11350e5dda33009d8c3beb74f2b60fb0f69291beb7056c357ddc4101c1a4c4"
   end
 
   head do

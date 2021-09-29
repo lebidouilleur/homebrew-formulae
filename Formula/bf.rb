@@ -6,7 +6,7 @@ class Bf < Formula
 
   stable do
     url    "https://github.com/lebidouilleur/bf/archive/refs/tags/v0.1.tar.gz"
-    sha256 "7ffca09a2a1b6a75d710a98defd264d735491769cf790f4bcdcbd2582a600313"
+    sha256 "4032781248b1bcb3f2ffdf4b1ff351a8d25bd0a8bb3c210763c3ff77e47ae005"
   end
 
   head do

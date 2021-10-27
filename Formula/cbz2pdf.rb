@@ -5,9 +5,9 @@ class Cbz2pdf < Formula
 
 
   stable do
-    url     "https://github.com/lebidouilleur/cbz2pdf/archive/refs/tags/0.1.tar.gz"
-    sha256  "55f95e0738d534974cf89163470867d8c7df2291c77d4ade6e28e43811e51979"
-    version "0.1"
+    url     "https://github.com/lebidouilleur/cbz2pdf/archive/refs/tags/v1.0.0.tar.gz"
+    sha256  "fba4f9dadad4a6532c6ff78ecd43bdaca17cb4d8feface6fd157e41400841151"
+    version "1.0.0"
 
     depends_on "unrar" => :recommended
   end

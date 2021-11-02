@@ -13,7 +13,7 @@ class Ion < Formula
 
 
   def install
-    system "rust build --release"
+    system "cargo", "build", "--release"
 
     bin.install "target/release/ion"
   end

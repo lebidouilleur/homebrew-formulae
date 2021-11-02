@@ -6,12 +6,14 @@ class Ion < Formula
 
   head do
     url "https://gitlab.redox-os.org/redox-os/ion.git"
+
+    depends_on "rust" => :build
   end
 
 
 
   def install
-    system "rust", "build", "--release"
+    system "rust build --release"
 
     bin.install "target/release/ion"
   end

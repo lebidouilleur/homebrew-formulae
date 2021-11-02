@@ -13,8 +13,20 @@ class Ion < Formula
 
 
   def install
-    system "cargo", "build", "--release"
-
-    bin.install "target/release/ion"
+    system "cargo", "install", *std_cargo_args
   end
+
+
+
+  def caveats
+    <<-EOS
+      Redox's Ion was installed to:
+          #{prefix}
+
+      To make Redox's Ion your default shell:
+        echo '/usr/local/bin/zsh' | sudo tee -a /etc/shells
+        chsh -s /usr/local/bin/ion $USER
+    EOS
+  end
+
 end

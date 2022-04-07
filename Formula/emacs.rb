@@ -48,9 +48,9 @@ class Emacs < Formula
 
 
   # Options:
-  option "with-xwidgets",   "⚠ Experimental: build GNU/Emacs with xwigdet support"
-  option "with-debug",      "⚠ build GNU/Emacs with debug features"
-  option "with-native-comp" "Build with native compilation"
+  option "with-xwidgets",    "⚠ Experimental: build GNU/Emacs with xwigdet support"
+  option "with-debug",       "⚠ build GNU/Emacs with debug features"
+  option "with-native-comp", "Build with native compilation"
 
 
 

@@ -6,8 +6,9 @@ class Emacs < Formula
 
 
   stable do
-    url    "https://ftp.gnu.org/gnu/emacs/emacs-27.2.tar.xz"
-    sha256 "b4a7cc4e78e63f378624e0919215b910af5bb2a0afc819fad298272e9f40c1b9"
+    url    "https://ftp.gnu.org/gnu/emacs/emacs-28.1.tar.xz"
+    mirror "https://ftpmirror.gnu.org/emacs/emacs-28.1.tar.xz"
+    sha256 "28b1b3d099037a088f0a4ca251d7e7262eab5ea1677aabffa6c4426961ad75e1"
 
     depends_on "autoconf"    => :build
     depends_on "automake"    => :build
@@ -21,6 +22,7 @@ class Emacs < Formula
     depends_on "jansson"     => :recommended
     depends_on "imagemagick" => :recommended
     depends_on "librsvg"     => :recommended
+    depends_on "little-cms2" => :recommended
     depends_on "mailutils"   => :recommended
   end
 
@@ -39,14 +41,27 @@ class Emacs < Formula
     depends_on "jansson"     => :recommended
     depends_on "imagemagick" => :recommended
     depends_on "librsvg"     => :recommended
+    depends_on "little-cms2" => :recommended
     depends_on "mailutils"   => :recommended
   end
 
 
 
   # Options:
-  option "with-xwidgets", "⚠ Experimental: build GNU/Emacs with xwigdet support"
-  option "with-debug",    "⚠ build GNU/Emacs with debug features"
+  option "with-xwidgets",   "⚠ Experimental: build GNU/Emacs with xwigdet support"
+  option "with-debug",      "⚠ build GNU/Emacs with debug features"
+  option "with-native-comp" "Build with native compilation"
+
+
+
+  # Optional dependencies
+  if build.with? "native-comp"
+    depends_on "gcc"       => :build
+    depends_on "gmp"       => :build
+    depends_on "libgccjit" => :recommended
+    depends_on "libjpeg"   => :build
+    depends_on "zlib"      => :build
+  end
 
 
   # Better icon for macOS >= Big Sur
@@ -103,6 +118,24 @@ class Emacs < Formula
       args << "--with-xwidgets"
     end
 
+
+    if build.with? "native-comp"
+      args << "--with-native-compilation"
+
+      gcc     = Formula["gcc"].any_installed_version.major
+      gcc_lib = "#{HOMEBREW_PREFIX}/lib/gcc/#{gcc}"
+
+      ENV.append "CFLAGS", "-I#{Formula["gcc"].include}"
+      ENV.append "CFLAGS", "-I#{Formula["libgccjit"].include}"
+      ENV.append "CFLAGS", "-I#{Formula["gmp"].include}"
+      ENV.append "CFLAGS", "-I#{Formula["libjpeg"].include}"
+
+      ENV.append "LDFLAGS", "-L#{gcc_lib}"
+      ENV.append "LDFLAGS", "-I#{Formula["gcc"].include}"
+      ENV.append "LDFLAGS", "-I#{Formula["libgccjit"].include}"
+      ENV.append "LDFLAGS", "-I#{Formula["gmp"].include}"
+      ENV.append "LDFLAGS", "-I#{Formula["libjpeg"].include}"
+    end
 
 
     # Start the installation

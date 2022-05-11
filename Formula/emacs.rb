@@ -68,7 +68,7 @@ class Emacs < Formula
   if MacOS.version >= :big_sur
     resource "bigsur-icon" do
       url    "https://github.com/d12frosted/homebrew-emacs-plus/blob/master/icons/elrumo2.icns?raw=true"
-      sha256 "0fbdab5172421d8235d9c53518dc294efbb207a4903b42a1e9a18212e6bae4f4"
+      sha256 "5eaa76a52b86d5cedb0d43afa7682ad553712e71eed03fe97ea4461f660627db"
     end
   end
 
